@@ -97,10 +97,6 @@ func draw(forward = true):
 		else:
 			body.set_text(text)
 		Globals.current.jm += 1
-	if Globals.current.jm % 2 == 0:
-		body.set_modulate(Color(0, 1, 0, 1))
-	else:
-		body.set_modulate(Color(0, 0, 1, 1))
 
 func _get_mystery_type():
 	match OS.get_datetime().weekday:
@@ -156,7 +152,7 @@ func check_prefix(text):
 					$HBoxContainer2/Label4.set_text("")
 					for i in range(int(text[2])+1):
 						$HBoxContainer2/Label4.set_text($HBoxContainer2/Label4.get_text() + "0")
-						
+
 					return check_prefix(text.substr(3,-1))
 				_:
 					$HBoxContainer2/Label4.set_text("")
